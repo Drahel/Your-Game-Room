@@ -1,8 +1,17 @@
+html { 
+    background: url(../resources/background.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
 .navbar{
     height: 60px;
     font-family: Jacques Francois;
-    background-color: #A8D5BA;
+    background-color: rgba(168, 213, 186, 0);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    
 }
 
 .head-text{
@@ -12,11 +21,13 @@
 }
 
 body{
-    background-color: #8BBEE8 !important;
+    background-color: rgba(139, 190, 232, 0) !important;
 }
 
 .game-card{
-    background-color: #D7A9E3 !important;
+    /* background-color: rgba(215, 169, 227, 0.9) !important; */
+    background: hsla(0, 0%, 100%, 0.15);
+    backdrop-filter: blur(2px);
     box-shadow: 0px 8px 5px 3px rgba(0, 0, 0, 0.3);
     border-radius: 50px !important;
     width: 12rem;
@@ -25,8 +36,17 @@ body{
     margin-bottom: 30px;
 }   
 
+.game-card:hover{
+    background: hsla(203, 60%, 31%, 0.5);
+    box-shadow: 0 0 35px #225d85;
+}
+
+.game-card:hover img{
+    -webkit-filter: invert(100%) !important;
+}
+
 .main-part{
-    background-color: #8BBEE8;
+    background-color: rgba(139, 190, 232, 0);
     height: 100%;
 }
 
@@ -41,10 +61,47 @@ body{
     width: 100%;
     height: 60px;
     line-height: 60px;
-    background-color: #A8D5BA;
+    /* background-color: rgba(168, 213, 186, 1); */
+    background-color: rgba(139, 190, 232, 0);
     font-family: Jacques Francois;
+    color:azure;
     font-size: 25px;
     box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
-    
 }
 
+
+/* animations */
+.fade{
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    padding: auto;
+    animation-name: fade-in;
+}
+
+@keyframes fadein{
+    0%{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    } 
+}
+
+.fade-delay-1{
+    animation-delay: 0.1s;
+}
+.fade-delay-2{
+    animation-delay: 0.2s;
+}
+.fade-delay-3{
+    animation-delay: 0.3s;
+}
+.fade-delay-4{
+    animation-delay: 0.4s;
+}
+.fade-delay-5{
+    animation-delay: 0.5s;
+}
+.fade-delay-6{
+    animation-delay: 0.6s;
+}
