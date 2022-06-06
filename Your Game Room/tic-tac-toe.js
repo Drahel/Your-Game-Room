@@ -14,7 +14,6 @@ onload = function(){
 	mainScoresField = document.getElementById("main_scores");
 
 	scoresField.innerHTML = scores;
-	console.log(scoresField);
 
 	again.onclick = function(){
 		winning.style.display = "none";
