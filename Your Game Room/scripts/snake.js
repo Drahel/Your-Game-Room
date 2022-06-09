@@ -18,6 +18,20 @@
     bubblyButtons[i].addEventListener('click', animateButton, false);
   }
 
+  // следим за кадрами анимации, чтобы если что — остановить игру
+  let rAF = null;  
+
+  //кнопки управления игрой
+  var playBut = document.getElementById('play-pause');
+  var restartBut = document.getElementById('restart');
+
+  //подсчет очков
+  var score = 0;
+  var scoreBar = document.getElementById('score'); 
+  function drawScore(){
+    scoreBar.innerHTML = "Score : "+ score;
+  }
+
   // Поле, на котором всё будет происходить, — тоже как бы переменная
   var canvas = document.getElementById('game');
   // Классическая змейка — двухмерная, сделаем такую же
@@ -42,8 +56,8 @@
   // А это — еда. Представим, что это красные яблоки.
   var apple = {
     // Начальные координаты яблока
-    x: 320,
-    y: 320
+    x: getRandomInt(0, 25) * grid,
+    y: getRandomInt(0, 25) * grid
   };
   // Делаем генератор случайных чисел в заданном диапазоне
   function getRandomInt(min, max) {
@@ -52,13 +66,13 @@
   // Игровой цикл — основной процесс, внутри которого будет всё происходить
   function loop() {
     // Хитрая функция, которая замедляет скорость игры с 60 кадров в секунду до 15 (60/15 = 4)
-    requestAnimationFrame(loop);
+    rAF = requestAnimationFrame(loop);
     // Игровой код выполнится только один раз из четырёх, в этом и суть замедления кадров, а пока переменная count меньше четырёх, код выполняться не будет
     if (++count < 4) {
       return;
     }
     // Обнуляем переменную скорости
-    count = 0;
+    count = -1;
     // Очищаем игровое поле
     context.clearRect(0, 0, canvas.width, canvas.height);
     // Двигаем змейку с нужной скоростью
@@ -84,20 +98,23 @@
     if (snake.cells.length > snake.maxCells) {
       snake.cells.pop();
     }
-    // Рисуем еду — красное яблоко
-    context.fillStyle = 'red';
+    // Рисуем еду — cинее яблоко
+    context.fillStyle = '#253e54';
     context.fillRect(apple.x, apple.y, grid - 1, grid - 1);
     // Одно движение змейки — один новый нарисованный квадратик 
-    context.fillStyle = 'green';
+    context.fillStyle = '#64b9d8';
     // Обрабатываем каждый элемент змейки
     snake.cells.forEach(function (cell, index) {
-      // Чтобы создать эффект клеточек, делаем зелёные квадратики меньше на один пиксель, чтобы вокруг них образовалась чёрная граница
+      // Чтобы создать эффект клеточек, делаем голубые квадратики меньше на один пиксель, чтобы вокруг них образовалась чёрная граница
       context.fillRect(cell.x, cell.y, grid - 1, grid - 1);
       // Если змейка добралась до яблока...
       if (cell.x === apple.x && cell.y === apple.y) {
+        //добавляем очки к общему счету
+        score+=20;
+        drawScore();
         // увеличиваем длину змейки
         snake.maxCells++;
-        // Рисуем новое яблочко
+        // Рисуем новое яблоко
         // Помним, что размер холста у нас 400x400, при этом он разбит на ячейки — 25 в каждую сторону
         apple.x = getRandomInt(0, 25) * grid;
         apple.y = getRandomInt(0, 25) * grid;
@@ -108,19 +125,33 @@
         // Если такие клетки есть — начинаем игру заново
         if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
           // Задаём стартовые параметры основным переменным
-          snake.x = 160;
-          snake.y = 160;
-          snake.cells = [];
-          snake.maxCells = 4;
-          snake.dx = grid;
-          snake.dy = 0;
-          // Ставим яблочко в случайное место
-          apple.x = getRandomInt(0, 25) * grid;
-          apple.y = getRandomInt(0, 25) * grid;
+          cancelAnimationFrame(rAF);
+          setTimeout(showGameOver,200);
         }
       }
     });
   }
+
+  //отображаем поражение в игре
+  function showGameOver() {
+    // прекращаем всю анимацию игры
+  
+    
+    // ставим флаг окончания
+    gameOver = true;  
+    // рисуем чёрный прямоугольник посередине поля
+    context.fillStyle = '#253e54';
+    context.globalAlpha = 0.75;
+    context.fillRect(0, canvas.height / 2 - 30, canvas.width, 60);
+    // пишем надпись белым моноширинным шрифтом по центру
+    context.globalAlpha = 1;
+    context.fillStyle = 'white';
+    context.font = '36px monospace';
+    context.textAlign = 'center';
+    context.textBaseline = 'middle';
+    context.fillText('GAME OVER!', canvas.width / 2, canvas.height / 2);
+  }
+  
   // Смотрим, какие нажимаются клавиши, и реагируем на них нужным образом
   document.addEventListener('keydown', function (e) {
     // Дополнительно проверяем такой момент: если змейка движется, например, влево, то ещё одно нажатие влево или вправо ничего не поменяет — змейка продолжит двигаться в ту же сторону, что и раньше. Это сделано для того, чтобы не разворачивать весь массив со змейкой на лету и не усложнять код игры.
@@ -148,5 +179,16 @@
       snake.dx = 0;
     }
   });
-  // Запускаем игру
-  requestAnimationFrame(loop);
+
+   // старт игры
+    playBut.onclick = function(){
+    requestAnimationFrame(loop);
+      this.style.backgroundColor = "hsla(0, 0%, 80%, 0.5)";
+      this.style.border = "1px solid #999999";
+      this.style.color = "#666666"; 
+      this.disabled = true;
+    }  
+
+    restartBut.onclick = function(){
+      window.location.reload();
+    }

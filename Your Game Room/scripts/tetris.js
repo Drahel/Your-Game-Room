@@ -198,6 +198,7 @@
       for (let row = playfield.length - 1; row >= 0; ) {
         // если ряд заполнен
         if (playfield[row].every(cell => !!cell)) {
+          //добавляем очки к общему счету
             score+=100;
             drawScore();
           // очищаем его и опускаем всё вниз на одну клетку
