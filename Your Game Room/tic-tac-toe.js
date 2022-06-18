@@ -11,9 +11,7 @@ onload = function(){
 	again = win_block.getElementsByClassName("again")[0];
 	winning = game.getElementsByClassName("winning")[0];
 	scoresField = document.getElementById("scores");
-	mainScoresField = document.getElementById("main_scores");
-
-	scoresField.innerHTML = scores;
+	mainScoresField = document.getElementsByClassName("container")[0];
 
 	again.onclick = function(){
 		winning.style.display = "none";
@@ -58,6 +56,7 @@ function drawSym(item, sym = user_sym){
 			if (scores > 100) {
 				scores = 100;
 			}
+			mainScoresField.innerHTML = "Your score: " + scores.toString();
 		}
 	}else if (winner == comp_sym) {
 		win_text.innerHTML = "Выиграл компьютер! Попоробуйте еще раз!";
@@ -68,6 +67,7 @@ function drawSym(item, sym = user_sym){
 			if (scores <= 0) {
 				scores = 0;
 			}
+			mainScoresField.innerHTML = "Your score: " + scores.toString();
 		}
 	}
 	if (winner) {
