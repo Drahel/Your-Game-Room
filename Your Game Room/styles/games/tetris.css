@@ -35,7 +35,7 @@ canvas {
   border-radius: 8px;
   background: hsla(0, 0%, 100%, 0.1);
   backdrop-filter: blur(2px);
-  border-color: #64b9d8;
+  border-color: rgb(100, 185, 216);
   color: #253e54;
   margin-bottom: 20px;
   font-family: Jacques Francois;
@@ -52,7 +52,7 @@ canvas {
   background: hsla(0, 0%, 100%, 0.1);
   backdrop-filter: blur(2px);
   border-color: #64b9d8;
-  color: #253e54;
+  color: rgb(37, 62, 84);
   margin-bottom: 20px;
   font-family: Jacques Francois;
   font-weight: bold;
@@ -92,7 +92,7 @@ canvas {
 .control-but:active {
   transform: scale(0.9);
   background-color: hsla(203, 60%, 48%, 0.3);;
-  box-shadow: 0 2px 25px #64b9d8;
+  box-shadow: 0 2px 25px hsl(196, 60%, 62%);
 }
 .control-but.animate:before {
   display: block;

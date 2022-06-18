@@ -6,37 +6,10 @@ ul {list-style: none;}
 img {border: none;}
 
 /* grid */
-html, body  {height: 100%;}
+html, body, .wrap {height: 100%;}
 .wrap {width: 1024px; margin: 0 auto; padding: 20px;}
 
-.ship, .icon-field, .btn-play {background: url('../../resources/battleship-game/sprite2.png') no-repeat;}
-
-.ships-collection{
-	font-family: Jacques Francois; color: #000000;
-		text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
- color: #64b9d8	;
-}
-  
-.control-but{
-    display: flex;
-    width: 85px;
-    justify-content: center;
-    position: relative;
-    border-radius: 15px;
-    background: hsla(0, 0%, 100%, 0.1);
-    backdrop-filter: blur(2px);
-    border-color: #64b9d8;
-    color: #253e54;
-    margin-bottom: 20px;
-    margin-right: 20px;
-    font-family: Jacques Francois;
-    font-weight: bold;
-    box-shadow: 0px 4px 5px 3px rgba(0, 0, 0, 0.3);
-    transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
-    -webkit-appearance: none;
-    appearance: none;
-  }
-  
+.ship, .icon-field, .btn-play {background: url('../img/sprite.png') no-repeat;}
 
 /* typography */
 body {font: normal 18px SegoePrint; line-height: 24px; color: #4530af;}
@@ -51,15 +24,13 @@ p {margin-bottom: 10px;}
 
 /*** CONTENT ***/
 
-.battlefield {width: 860px; height: 430	px; position: relative; margin: 0 auto; background: url('../../resources/battleship-game/grid.png') repeat;}
-.text-top {height: 66px; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 7px; font-family: Jacques Francois; color: #000000;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
-  color: white;}
+.battlefield {width: 860px; height: 563px; position: relative; margin: 0 auto; background: url('../img/grid.png') repeat;}
+.text-top {height: 66px; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 7px;}
 .service-row {text-align: center;}
 .service-text {color: #c00; padding-top: 10px;}
 
 .outer {margin-bottom: 21px; padding-left: 38px;}
-.field {width: 366px; height: 363px; flex-shrink: 0; position: relative; background: url('../../resources/battleship-game/bg_play_field2.png') no-repeat;}
+.field {width: 366px; height: 363px; flex-shrink: 0; position: relative; background: url('../img/bg_play_field.png') no-repeat;}
 .field-computer {margin-left: 31px;}
 
 .ships {width: 330px; height: 330px; position: relative; left: 29px; top: 27px;}
@@ -80,10 +51,8 @@ p {margin-bottom: 10px;}
 .singledeck.unsuccess {background-position: -360px -100px;}
 
 .instruction {margin-left: 26px; -webkit-user-select: none; user-select: none;}
-.type-placement-box {line-height: 34px; padding-bottom: 18px; width: 300px;}
-	.type-placement-box .link {font-size: 20px; border-bottom:  2px #4530af; cursor: pointer; font-family: Jacques Francois; color: #000000;
-		text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
-	 color: white;}
+.type-placement-box {line-height: 34px; padding-bottom: 18px;}
+	.type-placement-box .link {font-size: 20px; border-bottom: dashed 2px #4530af; cursor: pointer;}
 
 .initial-ships li {height: 35px; position: relative; overflow: hidden; margin-top: 31px;}
 .initial-ships .ship {left: 0; top: 0; float: left; cursor: move;}
