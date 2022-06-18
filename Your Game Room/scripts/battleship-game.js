@@ -958,6 +958,10 @@
 				}
 			}
 
+		
+
+		
+
 			// все корабли эскадры уничтожены
 			if (Object.keys(this.opponent.squadron).length == 0) {
 				if (this.opponent === human) {
@@ -972,6 +976,7 @@
 				}
 				Controller.showServiceText(text);
 				// показываем кнопку продолжения игры
+				computerfield.hidden=true;
 				buttonNewGame.hidden = false;
 			// бой продолжается
 			} else if (this.opponent === human) {
@@ -1004,6 +1009,14 @@
 			}
 		}
 	}
+
+		// перезагрузка игры
+		var restartBut = document.getElementById('restart');
+
+	restartBut.onclick = function(){
+		console.log("привет");
+		window.location.reload();
+	  }
 
 	///////////////////////////////////////////
 
@@ -1094,7 +1107,13 @@
 		instruction.hidden = true;
 		// показываем игровое поле компьютера
 		computerfield.parentElement.hidden = false;
-		toptext.innerHTML = 'Battle';
+		toptext.innerHTML = 'Battle' + '  <button class="control-but" id="restart">Reload</button>';
+		var restartBut = document.getElementById('restart');
+
+		restartBut.onclick = function(){
+			console.log("привет");
+			window.location.reload();
+		  }
 
 		// создаём экземпляр игрового поля компьютера
 		computer = new Field(computerfield);
