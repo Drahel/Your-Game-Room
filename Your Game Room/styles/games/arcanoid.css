@@ -1,0 +1,11 @@
+body{
+	background-color: #999999;
+	margin: 0px;
+}
+#canvas{
+	background-color: white;
+}
+
+.centerField {
+    text-align: center;
+}

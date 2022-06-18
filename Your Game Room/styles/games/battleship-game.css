@@ -1,0 +1,181 @@
+/* reset */
+html, body, div, span, h1, h2, p, a, img, strong, ul, li, button, footer, header {margin: 0; padding: 0; border: 0; vertical-align: baseline;}
+*, :after, :before {-webkit-box-sizing: border-box; box-sizing: border-box;}
+a, button, div {outline: none;}
+ul {list-style: none;}
+img {border: none;}
+
+/* grid */
+html, body  {height: 100%;}
+.wrap {width: 1024px; margin: 0 auto; padding: 20px;}
+
+.ship, .icon-field, .btn-play {background: url('../../resources/battleship-game/sprite2.png') no-repeat;}
+
+.ships-collection{
+	font-family: Jacques Francois; color: #000000;
+		text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+ color: #64b9d8	;
+}
+  
+.control-but{
+    display: flex;
+    width: 85px;
+    justify-content: center;
+    position: relative;
+    border-radius: 15px;
+    background: hsla(0, 0%, 100%, 0.1);
+    backdrop-filter: blur(2px);
+    border-color: #64b9d8;
+    color: #253e54;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: Jacques Francois;
+    font-weight: bold;
+    font-size: medium;
+    box-shadow: 0px 4px 5px 3px rgba(0, 0, 0, 0.3);
+    transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  
+
+/* typography */
+body {font: normal 18px SegoePrint; line-height: 24px; color: #4530af;}
+p {margin-bottom: 10px;}
+
+/* buttons */
+.btn-play {width: 144px; height: 45px; font-family: SegoePrint; font-size: 24px; line-height: 40px; color: #4530af; text-align: center; background-position: 0 -150px; cursor: pointer;}
+.btn-newgame { font-size: 19px; margin-top: 10px; }
+
+/* display */
+.flex {display: flex;}
+
+/*** CONTENT ***/
+
+.battlefield {width: 860px; height: 430	px; position: relative; margin: 0 auto; background: url('../../resources/battleship-game/grid.png') repeat;}
+.text-top {height: 66px; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 7px; font-family: Jacques Francois; color: #000000;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  color: white;}
+.service-row {text-align: center;}
+.service-text {color: #c00; padding-top: 10px;}
+
+.outer {margin-bottom: 21px; padding-left: 38px;}
+.field {width: 366px; height: 363px; flex-shrink: 0; position: relative; background: url('../../resources/battleship-game/bg_play_field2.png') no-repeat;}
+.field-computer {margin-left: 31px;}
+
+.ships {width: 330px; height: 330px; position: relative; left: 29px; top: 27px;}
+.ship {height: 35px; position: absolute;}
+.vertical {transform: rotate(90deg); transform-origin: 17.5px 17.5px;}
+
+.fourdeck {width: 134px; background-position: 0 0;}
+.fourdeck.success {background-position: 0 -50px;}
+.fourdeck.unsuccess {background-position: 0 -100px;}
+.tripledeck {width: 101px; background-position: -150px 0;}
+.tripledeck.success {background-position: -150px -50px;}
+.tripledeck.unsuccess {background-position: -150px -100px;}
+.doubledeck {width: 68px; background-position: -270px 0;}
+.doubledeck.success {background-position: -270px -50px;}
+.doubledeck.unsuccess {background-position: -270px -100px;}
+.singledeck {width: 35px; background-position: -360px 0;}
+.singledeck.success {background-position: -360px -50px;}
+.singledeck.unsuccess {background-position: -360px -100px;}
+
+.instruction {margin-left: 26px; -webkit-user-select: none; user-select: none;}
+.type-placement-box {line-height: 34px; padding-bottom: 18px; width: 300px;}
+	.type-placement-box .link {font-size: 20px; border-bottom:  2px #4530af; cursor: pointer; font-family: Jacques Francois; color: #000000;
+		text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+	 color: white;}
+
+.initial-ships li {height: 35px; position: relative; overflow: hidden; margin-top: 31px;}
+.initial-ships .ship {left: 0; top: 0; float: left; cursor: move;}
+.initial-ships .tripledeck1 {left: 164px;}
+.initial-ships .tripledeck2 {left: 297px;}
+.initial-ships .doubledeck2 {left: 99px;}
+.initial-ships .doubledeck3 {left: 197px;}
+.initial-ships .singledeck2 {left: 65px;}
+.initial-ships .singledeck3 {left: 131px;}
+.initial-ships .singledeck4 {left: 197px;}
+
+.icon-field {width: 33px; height: 33px; display: block; position: absolute; z-index: 5;}
+.dot {background-position: -410px 0;}
+.red-cross {background-position: -410px -50px;}
+.shaded-cell {background-position: -410px -100px;}
+.shaded-cell_red {background-position: -410px -140px;}
+.explosion { background-position: -150px -150px; z-index: 6; opacity: 0; transform: scale(.2); }
+
+@keyframes Explosion {
+	0% { opacity: 0; transform: scale(.2); }
+	50% { opacity: 1; transform: scale(1); }
+	100% { opacity: 0; }
+}
+.explosion.active { animation-name: Explosion; animation-duration: 0.4s; transform: scale(1); }
+
+/* анимация кнопок */
+
+.control-but:focus {
+  outline: 0;
+}
+.control-but:before, .control-but:after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 140%;
+  height: 100%;
+  left: -20%;
+  z-index: -1000;
+  transition: all ease-in-out 0.5s;
+  background-repeat: no-repeat;
+}
+.control-but:before {
+  display: none;
+  top: -75%;
+  background-image: radial-gradient(circle, white 20%, transparent 20%), radial-gradient(circle, transparent 20%, #64b9d8 20%, transparent 30%), radial-gradient(circle, white 20%, transparent 20%), radial-gradient(circle, #64b9d8 20%, transparent 20%), radial-gradient(circle, transparent 10%, white 15%, transparent 20%), radial-gradient(circle, #64b9d8 20%, transparent 20%), radial-gradient(circle, white 20%, transparent 20%), radial-gradient(circle, #64b9d8 20%, transparent 20%), radial-gradient(circle, white 20%, transparent 20%);
+  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
+}
+.control-but:after {
+  display: none;
+  bottom: -75%;
+  background-image: radial-gradient(circle, white 20%, transparent 20%), radial-gradient(circle, #64b9d8 20%, transparent 20%), radial-gradient(circle, transparent 10%, white 15%, transparent 20%), radial-gradient(circle, #64b9d8 20%, transparent 20%), radial-gradient(circle, white 20%, transparent 20%), radial-gradient(circle, #64b9d8 20%, transparent 20%), radial-gradient(circle, white 20%, transparent 20%);
+  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+}
+.control-but:active {
+  transform: scale(0.9);
+  background-color: hsla(203, 60%, 48%, 0.3);;
+  box-shadow: 0 2px 25px hsl(196, 60%, 62%);
+}
+.control-but.animate:before {
+  display: block;
+  animation: topBubbles ease-in-out 0.75s forwards;
+}
+.control-but.animate:after {
+  display: block;
+  animation: bottomBubbles ease-in-out 0.75s forwards;
+}
+
+@keyframes topBubbles {
+  0% {
+    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
+  }
+  50% {
+    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%;
+  }
+  100% {
+    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+@keyframes bottomBubbles {
+  0% {
+    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%;
+  }
+  50% {
+    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0%;
+  }
+  100% {
+    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+
+
+
