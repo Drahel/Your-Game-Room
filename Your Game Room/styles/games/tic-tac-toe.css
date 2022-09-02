@@ -10,14 +10,44 @@ h2 {
 	text-transform: uppercase;
 	border: 1px solid #333;
 	margin: 5px;
+	border-radius: 10px;
 	cursor: pointer;
 
 	box-shadow: 3px 4px 1px 2px rgba(1,1,1, 0.1);
-	text-shadow: 2px 3px  1px rgba(1,1,1, 0.3);
 	user-select: none;
 }
 table {
 	/*margin: 0 auto;*/
+}
+
+.game-window{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	flex-direction: column;
+    height: 100%;
+}
+
+.control-but{
+    display: flex;
+    width: 85px;
+    justify-content: center;
+    position: relative;
+    border-radius: 15px;
+    background: hsla(0, 0%, 100%, 0.1);
+    backdrop-filter: blur(2px);
+    border-color: #64b9d8;
+    color: #253e54;
+    margin-bottom: 20px;
+    margin-right: 20px;
+	margin-top: 120px;
+	margin-left: 20px;
+    font-family: Jacques Francois;
+    font-weight: bold;
+    box-shadow: 0px 4px 5px 3px rgba(0, 0, 0, 0.3);
+    transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 #win_block {
@@ -34,7 +64,6 @@ table {
 }
 #win_block .again:hover{
 	border-color: transparent;
-	
 }
 
 #game {
@@ -69,3 +98,4 @@ table {
 #game table tr td:last-child div {
 	margin-right: 0;
 }
+

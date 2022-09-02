@@ -1,17 +1,17 @@
 var arr, arr_events = [], win_block, winner, again, winning, game;
-var comp_sym = "o";
-var user_sym = "x";
+var comp_sym = '<i class="fa-regular fa-circle"></i>';
+var user_sym = '<i class="fa-solid fa-x"></i>';
 var scores = 100;
+var playBut = document.getElementById('play-pause');
 
 onload = function(){
 	game = document.getElementById("game");
 	arr = game.getElementsByClassName("inner");
 	win_block = document.getElementById("win_block");
-	win_text = win_block.getElementsByClassName("winner")[0];
+	win_text = win_block.getElementsByClassName("winner")[0];	
 	again = win_block.getElementsByClassName("again")[0];
 	winning = game.getElementsByClassName("winning")[0];
 	scoresField = document.getElementById("scores");
-	mainScoresField = document.getElementsByClassName("container")[0];
 
 	again.onclick = function(){
 		winning.style.display = "none";
@@ -28,6 +28,14 @@ onload = function(){
 	}
 	randomMove();
 };
+
+playBut.onclick = function(){
+    requestAnimationFrame(loop);
+      this.style.backgroundColor = "hsla(0, 0%, 80%, 0.5)";
+      this.style.border = "1px solid #999999";
+      this.style.color = "#666666"; 
+      this.disabled = true;
+    }  
 
 function randomMove(){
 	var rnd = getRandomInt(2);
@@ -48,26 +56,24 @@ function drawSym(item, sym = user_sym){
 
 
 	if (winner == user_sym) {
-		win_text.innerHTML = "Вы выиграли!";
-		win_text.style.color = "green";
-		winning.style.backgroundColor = "rgba(0,200,0, 0.5)";
+		win_text.innerHTML = "You won!";
+		win_text.style.color = "rgba(0,100,50, 0.5)";
+		 winning.style.backgroundColor = "rgba(0,100,50, 0.5)";
 		if (scores < 100) {
 			scores += 10;
 			if (scores > 100) {
 				scores = 100;
 			}
-			mainScoresField.innerHTML = "Your score: " + scores.toString();
 		}
 	}else if (winner == comp_sym) {
-		win_text.innerHTML = "Выиграл компьютер! Попоробуйте еще раз!";
-		win_text.style.color = "red";
-		winning.style.backgroundColor = "rgba(200,0,0, 0.5)";
+		win_text.innerHTML = "Bad round! Try again!";
+		win_text.style.color = "rgba(100,0,100, 0.5)";
+		 winning.style.backgroundColor = "rgba(100,0,100, 0.5)";
 		if (scores > 0) {
 			scores -= 10;
 			if (scores <= 0) {
 				scores = 0;
 			}
-			mainScoresField.innerHTML = "Your score: " + scores.toString();
 		}
 	}
 	if (winner) {
@@ -152,10 +158,10 @@ function autoDrawing(){
 
 	if (!ckeckFreeSpace()) {
 		
-		win_text.innerHTML = "Выиграла ничья! ";
-		win_text.style.color = "blue";
+		win_text.innerHTML = "Draw! ";
+		win_text.style.color = "rgba(0,0,100, 0.5)";
 		winning.style.display = "block";
-		winning.style.backgroundColor = "rgba(0,0,200, 0.5)";
+		winning.style.backgroundColor = "rgba(0,0,100, 0.5)";
 		win_block.style.display = "block";
 
 		return false;
