@@ -98,7 +98,7 @@
     if (snake.cells.length > snake.maxCells) {
       snake.cells.pop();
     }
-    // Рисуем еду — cинее яблоко
+    // Рисуем еду — яблоко
     context.fillStyle = '#253e54';
     context.fillRect(apple.x, apple.y, grid - 1, grid - 1);
     // Одно движение змейки — один новый нарисованный квадратик 
