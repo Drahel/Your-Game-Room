@@ -6,7 +6,7 @@ var scoreVal = 0;
 var mouseX = 0;
 var mouseY = 0;
 var score = new PIXI.Text("SCORE: 0", {font: "Bold " + (width / 30) + "px Arial", fill: "white"});
-var background = new PIXI.TilingSprite(PIXI.Texture.fromImage("assets/images/darkPurple.png"), width, height);
+var background = new PIXI.TilingSprite(PIXI.Texture.fromImage("../assets/images/darkPurple.png"), width, height);
 var player;
 var healthSprites = [];
 var enemies = [];
@@ -25,7 +25,7 @@ function restart() {
     application.stage.addChild(player.sprite);
     application.stage.addChild(score);
     for(var i = 0; i < player.health; i++) {
-        var sprite = PIXI.Sprite.fromImage("assets/images/life.png");
+        var sprite = PIXI.Sprite.fromImage("../assets/images/life.png");
         sprite.y = sprite.height + 30
         sprite.x = 50 * (i + 1)
         healthSprites.push(sprite);
