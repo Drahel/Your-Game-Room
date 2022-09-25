@@ -1,6 +1,6 @@
 var bullets = [];
 function Player(x, y) {
-    this.sprite = PIXI.Sprite.fromImage("assets/images/player.png");
+    this.sprite = PIXI.Sprite.fromImage("../assets/images/player.png");
     this.sprite.anchor.set(0.5);
     this.sprite.x = x;
     this.sprite.y = y;
@@ -89,7 +89,7 @@ function Player(x, y) {
 
 
 function Enemy(variant, x, y, player) {
-    this.sprite = PIXI.Sprite.fromImage("assets/images/enemies/" + variant + ".png")
+    this.sprite = PIXI.Sprite.fromImage("../assets/images/enemies/" + variant + ".png")
     this.sprite.x = x;
     this.sprite.y = y;
     this.xVel = 0;
@@ -131,7 +131,7 @@ function Enemy(variant, x, y, player) {
 }
 
 function Bullet(shooter, xVel, yVel) {
-    this.sprite = PIXI.Sprite.fromImage("assets/images/playerBullet.png")
+    this.sprite = PIXI.Sprite.fromImage("../assets/images/playerBullet.png")
     this.sprite.x = shooter.sprite.x;
     this.sprite.y = shooter.sprite.y;
     this.sprite.anchor.set(0.5);
