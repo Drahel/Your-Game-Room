@@ -4,7 +4,9 @@ var out = document.getElementById("out");
 window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 
 var scores = 0; 
-   
+
+var playBut = document.getElementById("play-pause");
+
 var player = new Player(300,380,80,15);
 var ball = new Ball(200,200,5,Math.floor(Math.random()*4+4),Math.floor(Math.random()*4+4),"red");
 var bricks;
@@ -12,10 +14,11 @@ var dKeyDown = false;
 var aKeyDown = false;
 var gameOver = false;
 var winner = false;
-mainScoresField = document.getElementsByClassName("container")[0];   
+mainScoresField = document.getElementsByClassName("score")[0];   
 
 loadMap();
 start();
+mainScoresField.innerHTML = "Score : " + "0";
 
 function Brick(x,y,width,height,color){
 	this.x = x;
@@ -68,7 +71,7 @@ function start(){
 		}
 		out.innerHTML += "<br>";
 		out.innerHTML += "Press R to restart";
-        mainScoresField.innerHTML = "Your score: " + "0";
+        mainScoresField.innerHTML = "Score : " + "0";
         scores = 0;
 	}		
 }
@@ -123,7 +126,7 @@ function checkBall_BrickCollision(){
 			}
 			bricks.splice(i,1);
             scores += 1;
-            mainScoresField.innerHTML = "Your score: " + scores.toString();
+            mainScoresField.innerHTML = "Score : " + scores.toString();
 			return;
 		}
 	}

@@ -24,13 +24,25 @@
     </nav>
 
     <div class="centerField">
-        <canvas id="canvas" width="400" height="400">Install gentoo</canvas>
-		<div id="out"></div>
-        <footer class="footer">
-            <div class="container">
-              Your score: 100
+        <div class="game-window">
+            <div class="col control-window">
+                <button class="control-but " id="play-pause">
+                    Play
+                </button>
+                <button class="control-but " id="restart">
+                    Reload
+                </button>
             </div>
-        </footer>
+            <div class="col game-window">
+                <canvas id="canvas" width="400" height="400">Install gentoo</canvas>
+            </div>
+            <div class="col score-window">
+                <div id="score" class="score">
+                    Score : 
+                </div>
+            </div>
+        </div>  
+		<div id="out"></div>
 		<script type="text/javascript" src="../../scripts/arcanoid.js"></script>	    
     </div>
     <footer class="footer">
