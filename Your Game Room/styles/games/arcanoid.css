@@ -3,6 +3,18 @@ body{
 	margin: 0px;
 }
 
+#out{
+	color: #253e54;
+	font-family: Jacques Francois;
+	font-size: large;
+	font-weight: bold;
+	text-shadow: 0px 4px 4px #64b9d8;
+	width: 400px;
+	margin-top: 5px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .centerField {
     text-align: center;
 }
@@ -73,4 +85,45 @@ canvas {
     -webkit-appearance: none;
     appearance: none;
   }
+
+  .control-but:focus {
+    outline: 0;
+  }
+  .control-but:before, .control-but:after {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 140%;
+    height: 100%;
+    left: -20%;
+    z-index: -1000;
+    transition: all ease-in-out 0.5s;
+    background-repeat: no-repeat;
+  }
+  .control-but:before {
+    display: none;
+    top: -75%;
+    background-image: radial-gradient(circle, white 20%, transparent 20%), radial-gradient(circle, transparent 20%, #64b9d8 20%, transparent 30%), radial-gradient(circle, white 20%, transparent 20%), radial-gradient(circle, #64b9d8 20%, transparent 20%), radial-gradient(circle, transparent 10%, white 15%, transparent 20%), radial-gradient(circle, #64b9d8 20%, transparent 20%), radial-gradient(circle, white 20%, transparent 20%), radial-gradient(circle, #64b9d8 20%, transparent 20%), radial-gradient(circle, white 20%, transparent 20%);
+    background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
+  }
+  .control-but:after {
+    display: none;
+    bottom: -75%;
+    background-image: radial-gradient(circle, white 20%, transparent 20%), radial-gradient(circle, #64b9d8 20%, transparent 20%), radial-gradient(circle, transparent 10%, white 15%, transparent 20%), radial-gradient(circle, #64b9d8 20%, transparent 20%), radial-gradient(circle, white 20%, transparent 20%), radial-gradient(circle, #64b9d8 20%, transparent 20%), radial-gradient(circle, white 20%, transparent 20%);
+    background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+  }
+  .control-but:active {
+    transform: scale(0.9);
+    background-color: hsla(203, 60%, 48%, 0.3);;
+    box-shadow: 0 2px 25px #64b9d8;
+  }
+  .control-but.animate:before {
+    display: block;
+    animation: topBubbles ease-in-out 0.75s forwards;
+  }
+  .control-but.animate:after {
+    display: block;
+    animation: bottomBubbles ease-in-out 0.75s forwards;
+  }
+  
   

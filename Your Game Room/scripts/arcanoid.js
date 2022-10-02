@@ -6,6 +6,26 @@ window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequest
 var scores = 0; 
 
 var playBut = document.getElementById("play-pause");
+var restartBut = document.getElementById('restart');
+
+function restartButOff(){
+	restartBut.disabled = true;
+	restartBut.style.backgroundColor = "hsla(0, 0%, 80%, 0.5)";
+	restartBut.style.border = "1px solid #999999";
+	restartBut.style.color = "#666666"; 
+}
+
+restartButOff();
+
+function restartButOn(){
+	restartBut.disabled = false;
+	restartBut.style.backgroundColor = "hsla(0, 0%, 100%, 0.1)";
+	restartBut.style.border = "1px solid #64b9d8";
+	restartBut.style.color = "#253e54"; 
+}
+
+
+
 
 var player = new Player(300,380,80,15);
 var ball = new Ball(200,200,5,Math.floor(Math.random()*4+4),Math.floor(Math.random()*4+4),"red");
@@ -16,8 +36,21 @@ var gameOver = false;
 var winner = false;
 mainScoresField = document.getElementsByClassName("score")[0];   
 
-loadMap();
-start();
+
+playBut.onclick = function(){
+	loadMap();
+	start();
+	this.style.backgroundColor = "hsla(0, 0%, 80%, 0.5)";
+	this.style.border = "1px solid #999999";
+	this.style.color = "#666666"; 
+	this.disabled = true;
+	
+}  
+
+restartBut.onclick = function(){
+	restart();
+}
+
 mainScoresField.innerHTML = "Score : " + "0";
 
 function Brick(x,y,width,height,color){
@@ -65,12 +98,14 @@ function start(){
 	if(gameOver === false){
 		requestAnimationFrame(start);
 	} else {
+		restartButOn();
 		out.innerHTML = "Game over";
 		if(winner){
 			out.innerHTML += ", you won!";
 		}
 		out.innerHTML += "<br>";
-		out.innerHTML += "Press R to restart";
+		restartBut.disabled = false;
+		out.innerHTML += 'Press R to restart or press the "Reload" button';
         mainScoresField.innerHTML = "Score : " + "0";
         scores = 0;
 	}		
@@ -269,6 +304,7 @@ function checkWinner(){
 }
 
 function restart(){
+	restartButOff();
 	out.innerHTML = "";
 	gameOver = false;
 	loadMap();
