@@ -18,6 +18,7 @@ h2 {
 }
 table {
 	/*margin: 0 auto;*/
+	border-collapse: separate !important;
 }
 
 .game-window{
