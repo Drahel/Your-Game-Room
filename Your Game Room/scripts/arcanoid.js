@@ -28,7 +28,7 @@ function restartButOn(){
 
 
 var player = new Player(300,380,80,15);
-var ball = new Ball(200,200,5,Math.floor(Math.random()*4+4),Math.floor(Math.random()*4+4),"red");
+var ball = new Ball(200,200,5,Math.floor(Math.random()*2+4),Math.floor(Math.random()*2+4),"red");
 var bricks;
 var dKeyDown = false;
 var aKeyDown = false;
@@ -99,13 +99,13 @@ function start(){
 		requestAnimationFrame(start);
 	} else {
 		restartButOn();
-		out.innerHTML = "Game over";
+		out.innerHTML = `Game over. Your score is ${scores}.`;
 		if(winner){
-			out.innerHTML += ", you won!";
+			out.innerHTML += "You won!";
 		}
 		out.innerHTML += "<br>";
 		restartBut.disabled = false;
-		out.innerHTML += 'Press R to restart or press the "Reload" button';
+		out.innerHTML += `Press R to restart or press the "Reload" button`;
         mainScoresField.innerHTML = "Score : " + "0";
         scores = 0;
 	}		
@@ -257,49 +257,63 @@ function renderPlayer(){
 
 function loadMap(){
 	bricks = [
+		new Brick(-1,50,50,10,"blue"),
 		new Brick(50,50,50,10,"blue"),
 		new Brick(101,50,50,10,"blue"),
 		new Brick(152,50,50,10,"blue"),
 		new Brick(203,50,50,10,"blue"),
 		new Brick(254,50,50,10,"blue"),
-		new Brick(305,50,50,10,"blue"), //Row 1
+		new Brick(305,50,50,10,"blue"),
+		new Brick(356,50,50,10,"blue"), //Row 1
+		new Brick(-1,61,50,10,"green"),
 		new Brick(50,61,50,10,"green"),
 		new Brick(101,61,50,10,"green"),
 		new Brick(152,61,50,10,"green"),
 		new Brick(203,61,50,10,"green"),
 		new Brick(254,61,50,10,"green"),
-		new Brick(305,61,50,10,"green"), //Row 2
+		new Brick(305,61,50,10,"green"), 
+		new Brick(356,61,50,10,"green"), //Row 2
+		new Brick(-1,72,50,10,"darkcyan"),
 		new Brick(50,72,50,10,"darkcyan"),
 		new Brick(101,72,50,10,"darkcyan"),
 		new Brick(152,72,50,10,"darkcyan"),
 		new Brick(203,72,50,10,"darkcyan"),
 		new Brick(254,72,50,10,"darkcyan"),
-		new Brick(305,72,50,10,"darkcyan"), //Row 3
+		new Brick(305,72,50,10,"darkcyan"),
+		new Brick(356,72,50,10,"darkcyan"), //Row 3
+		new Brick(-1,83,50,10,"coral"),
 		new Brick(50,83,50,10,"coral"),
 		new Brick(101,83,50,10,"coral"),
 		new Brick(152,83,50,10,"coral"),
 		new Brick(203,83,50,10,"coral"),
 		new Brick(254,83,50,10,"coral"),
-		new Brick(305,83,50,10,"coral"), //Row 4
+		new Brick(305,83,50,10,"coral"),
+		new Brick(356,83,50,10,"coral"), //Row 4
+		new Brick(-1,94,50,10,"darkolivegreen"),
 		new Brick(50,94,50,10,"darkolivegreen"),
 		new Brick(101,94,50,10,"darkolivegreen"),
 		new Brick(152,94,50,10,"darkolivegreen"),
 		new Brick(203,94,50,10,"darkolivegreen"),
 		new Brick(254,94,50,10,"darkolivegreen"),
-		new Brick(305,94,50,10,"darkolivegreen"), //Row 5
+		new Brick(305,94,50,10,"darkolivegreen"),
+		new Brick(356,94,50,10,"darkolivegreen"), //Row 5
+		new Brick(-1,105,50,10,"lightsteelblue"),
 		new Brick(50,105,50,10,"lightsteelblue"),
 		new Brick(101,105,50,10,"lightsteelblue"),
 		new Brick(152,105,50,10,"lightsteelblue"),
 		new Brick(203,105,50,10,"lightsteelblue"),
 		new Brick(254,105,50,10,"lightsteelblue"),
-		new Brick(305,105,50,10,"lightsteelblue")  //Row 6
+		new Brick(305,105,50,10,"lightsteelblue"),
+		new Brick(356,105,50,10,"lightsteelblue") //Row 6
 	];
 }
 
 function checkWinner(){
 	if(bricks.length < 1){
-		gameOver = true;
-		winner = true;
+		// gameOver = true;
+		loadMap();
+		ball = new Ball(200,200,5,Math.floor(Math.random()*2+4),Math.floor(Math.random()*2+4),"red");
+		// winner = true;
 	}
 }
 
@@ -308,7 +322,7 @@ function restart(){
 	out.innerHTML = "";
 	gameOver = false;
 	loadMap();
-	ball = new Ball(200,200,5,Math.floor(Math.random()*4+4),Math.floor(Math.random()*4+4),"red");
+	ball = new Ball(200,200,5,Math.floor(Math.random()*2+4),Math.floor(Math.random()*2+4),"red");
 	player = new Player(300,380,80,15);
 	start();
 }
