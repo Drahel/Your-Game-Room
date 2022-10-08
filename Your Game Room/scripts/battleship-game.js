@@ -19,6 +19,8 @@
 	// флаг, блокирующий действия игрока во время выстрела компьютера
 	let compShot = false;
 
+	var balance = Number(localStorage.getItem("balance"));
+
 	// получаем объект элемента DOM по его ID
 	const getElement = id => document.getElementById(id);
 	// вычисляем координаты всех сторон элемента относительно окна браузера
@@ -965,14 +967,20 @@
 			// все корабли эскадры уничтожены
 			if (Object.keys(this.opponent.squadron).length == 0) {
 				if (this.opponent === human) {
+					balance = Number(localStorage.getItem("balance"));
 					text = 'Unfortunately, you lose.';
+					balance -=50;
+					localStorage.setItem("balance",balance);
 					// показываем оставшиеся корабли компьютера
 					for (let name in computer.squadron) {
 						const dataShip = computer.squadron[name];
 						Ships.showShip(computer, name, dataShip.x, dataShip.y, dataShip.kx );
 					}
 				} else {
+					balance = Number(localStorage.getItem("balance"));
 					text = 'Congratulations! You won!';
+					balance +=100;
+					localStorage.setItem("balance",balance);
 				}
 				Controller.showServiceText(text);
 				// показываем кнопку продолжения игры
@@ -1014,8 +1022,8 @@
 		var restartBut = document.getElementById('restart');
 
 	restartBut.onclick = function(){
-		console.log("привет");
 		window.location.reload();
+		var balance = Number(localStorage.getItem("balance"));
 	  }
 
 	///////////////////////////////////////////
