@@ -28,6 +28,7 @@
   //подсчет очков
   var score = 0;
   var scoreBar = document.getElementById('score'); 
+  var balance = Number(localStorage.getItem("balance"));
   function drawScore(){
     scoreBar.innerHTML = "Score : "+ score;
   }
@@ -110,7 +111,9 @@
       // Если змейка добралась до яблока...
       if (cell.x === apple.x && cell.y === apple.y) {
         //добавляем очки к общему счету
-        score+=20;
+        score+=1;
+        balance+=1;
+        localStorage.setItem("balance",balance);    
         drawScore();
         // увеличиваем длину змейки
         snake.maxCells++;

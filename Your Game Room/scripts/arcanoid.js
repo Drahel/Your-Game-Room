@@ -4,7 +4,7 @@ var out = document.getElementById("out");
 window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 
 var scores = 0; 
-
+var balance = Number(localStorage.getItem("balance"));
 var playBut = document.getElementById("play-pause");
 var restartBut = document.getElementById('restart');
 
@@ -160,7 +160,9 @@ function checkBall_BrickCollision(){
 				ball.dy = -ball.dy;
 			}
 			bricks.splice(i,1);
-            scores += 1;
+            scores+=1;
+			balance+=1;
+			localStorage.setItem("balance",balance);
             mainScoresField.innerHTML = "Score : " + scores.toString();
 			return;
 		}
