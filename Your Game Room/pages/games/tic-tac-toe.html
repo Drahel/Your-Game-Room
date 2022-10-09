@@ -70,9 +70,39 @@
                 <span class="again">Reload!</span>
             </div>
         </div>
-        <button class="control-but" id="play-pause">
-            Play
-        </button>
+        <div class="control-div">
+            <button class="control-but" id="play-pause">
+                Play
+            </button>
+            <button type="button" class="control-but" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="rules">
+                Guide
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                 <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center" id="staticBackdropLabel">Tic-tac-toe Rules</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h4>How to play?</h4> 
+                        <img width="100px" style="float:right" src="../../resources/game-rules/start-game-icon.jpg">
+                        <p>1. Click on the "Play" button located to the bottom of the playing field. The button will become inactive, see point 5.</p>
+                        <img width="50px" style="float:left; margin-right: 10px;" src="../../resources/game-rules/cross-icon.jpg">
+                        <img width="50px" style="float:right; margin-left: 6px;" src="../../resources/game-rules/circle-icon.jpg">
+                        <p>2. Players take turns placing signs on the free squares of the 3×3 field (one is always crosses, the other is always circles).</p>
+                        <p>3. The first one who lines up 3 of his shapes vertically, horizontally or diagonally wins.</p>
+                        <p>4. The first move is made by the player putting crosses.</p>
+                        <p>4. If you win you get 10 points, if you lose you have -10 points. Draw - 0.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Understood</button>
+                    </div>
+                  </div>
+                </div>
+             </div>
+        </div>
     </div>
 
 

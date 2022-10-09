@@ -21,6 +21,10 @@ table {
 	border-collapse: separate !important;
 }
 
+.control-div{
+	display: flex;
+}
+
 .game-window{
     display: flex;
     align-items: center;

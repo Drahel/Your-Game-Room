@@ -32,6 +32,37 @@
                 <button class="control-but " id="restart">
                     Reload
                 </button>
+                <button type="button" class="control-but" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="rules">
+                    Guide
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                     <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-center" id="staticBackdropLabel">Arkanoid Rules</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <h4>How to play?</h4> 
+                            <img width="100px" style="float:right; margin-left: 3px;" src="../../resources/game-rules/start-game-icon.jpg">
+                            <img width="130px" style="float:left; margin-right: 10px;" src="../../resources/game-rules/bricks-icon.jpg">
+                            <p>1. Click on the "Play" button located to the left of the playing field. After clicking, on the field a lot of bricks will appear. The button will become inactive, see point 5.</p>
+                            <img width="50px" style="float:right" src="../../resources/game-rules/wasd-icon.png">
+                            <p>2. Change the movement of the black platform using WASD keys.</p>
+                            <img width="120px" style="float:left; margin-right: 20px;" src="../../resources/game-rules/ball-icon.jpg">
+                            <p>3. Push the ball in bricks with the black platform.</p>
+                            <img width="100px" style="float:right" src="../../resources/game-rules/snake-score-icon.jpg">
+                            <p>4. A point is awarded for each destroyed brick.</p>
+                            <img width="100px" style="float:right" src="../../resources/game-rules/reload-game-icon.jpg">
+                            <p>5. After you lose, you can start over by clicking on the "Reload" button or just pressing 'R' button on your keyboard.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Understood</button>
+                        </div>
+                      </div>
+                    </div>
+                 </div>
             </div>
             <div class="col game-window">
                 <canvas id="canvas" width="400" height="400">Install gentoo</canvas>
