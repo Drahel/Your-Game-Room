@@ -1,3 +1,5 @@
+var balance = Number(localStorage.getItem("balance"));
+
 const DEV_MODE = false;
 
 var stage = document.createElement('canvas');

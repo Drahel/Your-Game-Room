@@ -119,3 +119,10 @@ body{
 .fade-delay-6{
     animation-delay: 0.6s;
 }
+
+.score-window{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    height: 100%;
+  }

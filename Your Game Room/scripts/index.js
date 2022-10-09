@@ -1,3 +1,5 @@
+var balance = Number(localStorage.getItem("balance"));
+
 var width = window.innerWidth;
 var height = window.innerHeight;
 var application = new PIXI.Application(width, height, {backgroundColor : 0x000000});
@@ -107,6 +109,8 @@ application.ticker.add(function(delta) {
             enemies.splice(i, 1);
             application.stage.removeChild(enemy.sprite);
             scoreVal++
+            balance+=scoreVal;
+            localStorage.setItem("balance",balance); 
             score.setText("SCORE: " + scoreVal);
             score.x = width / 2 - score.width / 2;
         }

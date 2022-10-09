@@ -24,12 +24,42 @@
     </nav>
     <div class="game-window">
         <div class="col control-window">
-            <button class="control-but " id="play-pause">
+            <button class="control-but" id="play-pause">
                 Play
             </button>
-            <button class="control-but " id="restart">
+            <button class="control-but" id="restart">
                 Reload
             </button>
+            <button type="button" class="control-but" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="rules">
+                Guide
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                 <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center" id="staticBackdropLabel">Snake Rules</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h4>How to play?</h4> 
+                        <img width="100px" style="float:right" src="../../resources/game-rules/start-game-icon.jpg">
+                        <p>1. Click on the "Play" button located to the left of the playing field. After clicking on the field, a snake and a fruit will appear. The button will become inactive, see point 5.</p>
+                        <img width="50px" style="float:right" src="../../resources/game-rules/arrows.png">
+                        <p>2. Change the direction of movement of the snake, trying to eat as much fruit as possible.</p>
+                        <img width="100px" style="float:left; margin-right: 10px;"  src="../../resources/game-rules/fruit-icon.jpg">
+                        <img width="100px" style="float:right" src="../../resources/game-rules/snake-score-icon.jpg">
+                        <p>3. After eating one fruit, 1 point will be credited to you (the score is displayed to the right of the playing field).</p>
+                        <p>4. Keep playing and try to beat the records of other users and your own by eating more and more fruits.</p>
+                        <img width="100px" style="float:right" src="../../resources/game-rules/reload-game-icon.jpg">
+                        <p>5. At any time of the game, you can start over by clicking on the "Reload" button and then on the "Play" button, which re-lit up after restarting the game.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Understood</button>
+                    </div>
+                  </div>
+                </div>
+             </div>
         </div>
         <div class="col game-window">
             <canvas width="400" height="400" id="game"></canvas>

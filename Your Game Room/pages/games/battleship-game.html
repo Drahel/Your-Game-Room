@@ -26,12 +26,49 @@
     <div id="matrix" style="position: fixed; left:20px; top:50px;"></div>
     <div class="wrap">
         <div class="battlefield">
-            <div id="text_top" class="flex text-top">Place your ships: 
+            <div id="text_top" class="flex text-top">
+                <span class="typo">Place your ships:</span>
                 <button class="control-but" id="restart">
                     Reload
                 </button>
+                <button type="button" class="control-but" style="margin-left: 0;" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="rules">
+                    Guide
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                     <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-center" id="staticBackdropLabel">Battleship rules</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <h4>How to play?</h4> 
+                            <img width="160px" style="float:right; margin-left: 8px;" src="../../resources/game-rules/ships-place-icon.jpg">
+                            <p class="rules-text">1. Choose whether you want to place the ships randomly or drag them manually onto the playing field. Click on the corresponding text.</p>
+                            <img width="20px" style="float:left; margin-right: 15px;" src="../../resources/game-rules/right-click-icon.png">
+                            <p class="rules-text" style="margin-left: 20px;">1.1 The position of the ship can be changed by right-clicking on it.</p>
+                            <img width="60px" style="float:left; margin-right: 15px;" src="../../resources/game-rules/start-game-icon.jpg">
+                            <p class="rules-text">2. Click on the "Play" button.</p>
+                            <p class="rules-text">3. The order of moves (yours and the computer's) is randomly selected.</p>
+                            <p class="rules-text">4. If it's your turn, left-click on the cell on the opponent's field, thereby making a shot.</p>
+                            <img width="30px" style="float:right; " src="../../resources/game-rules/battleship-hit-icon.jpg">
+                            <p class="rules-text" style="margin-left: 20px;">4.1. If you hit, the cage will fit a white cross, you continue to walk.</p>
+                            <img width="30px" style="float:right;" src="../../resources/game-rules/battleship-miss-icon.jpg">
+                            <p class="rules-text" style="margin-left: 20px;">4.2 If you miss, then the move goes to the opponent.</p>
+                            <img width="30px" style="float:right;" src="../../resources/game-rules/battleship-mark-icon.jpg">
+                            <p class="rules-text" style="margin-left: 20px;">4.3 You can mark empty fields by right-clicking on the cell.</p>
+                            <img width="80px" style="float:right;" src="../../resources/game-rules/battleship-reload-icon.jpg">
+                            <p class="rules-text">5. At any time of the game, you can restart it by clicking on the "Reload" button located above the playing field.</p>
+                            <p class="rules-text">6. Shoot in turn, your goal is to defeat the enemy fleet.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Understood</button>
+                        </div>
+                      </div>
+                    </div>
+                 </div>
             </div>
-            
             <div class="flex outer">
                 <!-- playing field human -->
                 <div class="field field-human">
@@ -48,13 +85,12 @@
                 <!-- instruction -->
                 <div id="instruction" class="instruction">
                     <div id="type_placement" class="type-placement-box">
-                         <span class="link" data-target="random">-Place ships randomly</span><br>
-                         <span class="link" data-target="manually">-Place ships by yourself</span>
+                         <span class="link typo" data-target="random">-Place ships randomly</span><br>
+                         <span class="link typo" data-target="manually">-Place ships by yourself</span>
                     </div>
                     <div id="ships_collection" class="ships-collection" hidden>
                         <p>Drag your ships and drop on battlefield.</p>
-                        <p>Press RMB on ship to change his orientation</p>
-                       
+                        <p>Press RMB on ship to change his orientation</p>             
                     </div>
                     <button id="play" type="button" class="control-but" hidden>Play</button></button>
                     <button id="newgame" type="button" class="control-but" hidden>Continue</button>

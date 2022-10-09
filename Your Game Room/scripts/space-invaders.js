@@ -1,3 +1,5 @@
+var balance = Number(localStorage.getItem("balance"));
+
 const DEV_MODE = false;
 
 var stage = document.createElement('canvas');
@@ -166,6 +168,8 @@ function handleLaserCollision() {
         
         // increase score
         score += calcScore(enemy.radius);
+        balance+=score;
+        localStorage.setItem("balance",balance); 
         scoreNode.textContent = score;
       }
     }

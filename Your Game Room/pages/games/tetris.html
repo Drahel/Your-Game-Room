@@ -30,6 +30,36 @@
             <button class="control-but " id="restart">
                 Reload
             </button>
+            <button type="button" class="control-but" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="rules">
+                Guide
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                 <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center" id="staticBackdropLabel">Tetris Rules</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h4>How to play?</h4> 
+                        <img width="100px" style="float:right" src="../../resources/game-rules/start-game-icon.jpg">
+                        <p>1. Click on the "Play" button located to the left of the playing field. After clicking shapes will start to come out from the upper border of the field. The button will become inactive, see point 5.</p>
+                        <img width="50px" style="float:left; margin-right: 20px;" src="../../resources/game-rules/arrows.png">
+                        <img width="70px" style="float:right; margin-left: 10px;" src="../../resources/game-rules/tetris-brick-icon.jpg">
+                        <p>2. Move the shapes using the arrow keys on your computer, trying to fill a full row.</p>
+                        <img width="100px" style="float:right" src="../../resources/game-rules/snake-score-icon.jpg">
+                        <p>3. After filling one row, you will be awarded 5 points (the score is displayed to the right of the playing field).</p>
+                        <p>4. Keep playing and try to beat your record.</p>
+                        <img width="100px" style="float:right" src="../../resources/game-rules/reload-game-icon.jpg">
+                        <p>5. At any time of the game, you can start over by clicking on the "Reload" button and then on the "Play" button, which re-lit up after restarting the game.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Understood</button>
+                    </div>
+                  </div>
+                </div>
+             </div>
         </div>
         <div class="col game-window">
             <canvas width="250" height="500" id="game"></canvas>
@@ -40,9 +70,9 @@
             </div>
         </div>
     </div>
-    <footer class="footer">
+    <footer class="footer" style="height: 53px;">
         <div class="container footer-menu">
-            <button class="but" onclick="window.location.href='../main-screen.html'">Back <i class="fa-solid fa-angle-left"></i></button>
+            <button class="but" style="height: 40px;" onclick="window.location.href='../main-screen.html'">Back <i class="fa-solid fa-angle-left"></i></button>
         </div>
     </footer>
     <script type="text/javascript" src="../../scripts/tetris.js"></script>
