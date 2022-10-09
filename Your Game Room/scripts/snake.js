@@ -29,6 +29,7 @@
   var score = 0;
   var scoreBar = document.getElementById('score'); 
   var balance = Number(localStorage.getItem("balance"));
+  var scoresStorage = Number(localStorage.getItem("scores"));
   function drawScore(){
     scoreBar.innerHTML = "Score : "+ score;
   }
@@ -113,7 +114,9 @@
         //добавляем очки к общему счету
         score+=1;
         balance+=1;
-        localStorage.setItem("balance",balance);    
+        localStorage.setItem("balance", balance); 
+        scoresStorage+=1;   
+        localStorage.setItem("scores", scoresStorage); 
         drawScore();
         // увеличиваем длину змейки
         snake.maxCells++;
@@ -194,4 +197,6 @@
 
     restartBut.onclick = function(){
       window.location.reload();
+      var scoresStorage = Number(localStorage.getItem("scores"));
+      var playBut = document.getElementById("play-pause");
     }

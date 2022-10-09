@@ -5,6 +5,7 @@ window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequest
 
 var scores = 0; 
 var balance = Number(localStorage.getItem("balance"));
+var scoresStorage = Number(localStorage.getItem("scores"));
 var playBut = document.getElementById("play-pause");
 var restartBut = document.getElementById('restart');
 
@@ -163,6 +164,10 @@ function checkBall_BrickCollision(){
             scores+=1;
 			balance+=1;
 			localStorage.setItem("balance",balance);
+
+			scoresStorage+=1
+			localStorage.setItem("scores", scoresStorage);
+			
             mainScoresField.innerHTML = "Score : " + scores.toString();
 			return;
 		}
@@ -326,6 +331,8 @@ function restart(){
 	loadMap();
 	ball = new Ball(200,200,5,Math.floor(Math.random()*2+4),Math.floor(Math.random()*2+4),"red");
 	player = new Player(300,380,80,15);
+	var balance = Number(localStorage.getItem("balance"));
+	var scoresStorage = Number(localStorage.getItem("scores"));
 	start();
 }
 

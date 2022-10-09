@@ -5,6 +5,7 @@ var user_sym = '<i class="fa-solid fa-x"></i>';
 var playBut = document.getElementById('play-pause');
 
 var balance = Number(localStorage.getItem("balance"));
+var scoresStorage = Number(localStorage.getItem("scores"));
 
 onload = function(){
 	game = document.getElementById("game");
@@ -60,6 +61,8 @@ function drawSym(item, sym = user_sym){
 	if (winner == user_sym) {
 		balance +=10;
 		localStorage.setItem("balance",balance);
+		scoresStorage += 1;
+		localStorage.setItem("scores",scoresStorage);
 		console.log(balance);
 		win_text.innerHTML = "You won! 10 points are in your wallet!";
 		win_text.style.color = "rgba(0,100,50, 0.5)";
@@ -67,6 +70,8 @@ function drawSym(item, sym = user_sym){
 	}else if (winner == comp_sym) {
 		balance -=10;
 		localStorage.setItem("balance",balance);
+		scoresStorage -= 2;
+		localStorage.setItem("scores",scoresStorage);
 		console.log(balance);
 		win_text.innerHTML = "Bad round! -10 points Try again!";
 		win_text.style.color = "rgba(100,0,100, 0.5)";

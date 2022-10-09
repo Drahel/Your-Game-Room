@@ -20,7 +20,7 @@
 	let compShot = false;
 
 	var balance = Number(localStorage.getItem("balance"));
-
+	var scoresStorage = Number(localStorage.getItem("scores"));
 	// получаем объект элемента DOM по его ID
 	const getElement = id => document.getElementById(id);
 	// вычисляем координаты всех сторон элемента относительно окна браузера
@@ -969,7 +969,9 @@
 				if (this.opponent === human) {
 					balance = Number(localStorage.getItem("balance"));
 					text = 'Unfortunately, you lose.';
-					balance -=50;
+					balance -= 50; 
+					scoresStorage -= 20;
+					localStorage.setItem("scores", scoresStorage);
 					localStorage.setItem("balance",balance);
 					// показываем оставшиеся корабли компьютера
 					for (let name in computer.squadron) {
@@ -980,6 +982,8 @@
 					balance = Number(localStorage.getItem("balance"));
 					text = 'Congratulations! You won!';
 					balance +=100;
+					scoresStorage += 20;
+					localStorage.setItem("scores", scoresStorage);
 					localStorage.setItem("balance",balance);
 				}
 				Controller.showServiceText(text);
@@ -1024,6 +1028,7 @@
 	restartBut.onclick = function(){
 		window.location.reload();
 		var balance = Number(localStorage.getItem("balance"));
+		var scoresStorage = Number(localStorage.getItem("scores"));
 	  }
 
 	///////////////////////////////////////////
