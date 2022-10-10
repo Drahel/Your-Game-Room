@@ -3,14 +3,6 @@ var balance = localStorage.getItem("balance");
 var balanceText = document.getElementById("balance");
 balanceText.innerHTML = balance;
 
-// var productsList = document.querySelectorAll(".buy");
-// var productsArray = [...productsList];
-// productsArray.forEach(el => {
-//     if(el.dataset.price == "0"){
-//         el.innerText = "Use";
-//     }
-// })
-
 var boughtBacks = [];
 var appliedBack = 0;
 var x = localStorage.getItem("firstLoad");

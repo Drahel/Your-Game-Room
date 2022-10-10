@@ -1,26 +1,45 @@
-var arr, arr_events = [], win_block, winner, again, winning, game;
+//animation-control-but
+
+var animateButton = function(e) {
+
+    e.preventDefault;
+    //reset animation
+    e.target.classList.remove('animate');
+    
+    e.target.classList.add('animate');
+    setTimeout(function(){
+      e.target.classList.remove('animate');
+    },700);
+  };
+  
+  var bubblyButtons = document.getElementsByClassName("control-but");
+  
+  for (var i = 0; i < bubblyButtons.length; i++) {
+    bubblyButtons[i].addEventListener('click', animateButton, false);
+  }
+
+// -------------------
+
+var arr, arr_events = [], win_block, winner, winning, game;
 var comp_sym = '<i class="fa-regular fa-circle"></i>';
 var user_sym = '<i class="fa-solid fa-x"></i>';
 
-var playBut = document.getElementById('play-pause');
-
+var playBut = document.querySelector("#play-pause")
+var restartBut = document.getElementById('restart');
 var balance = Number(localStorage.getItem("balance"));
 
-onload = function(){
+restartBut.style.backgroundColor = "hsla(0, 0%, 80%, 0.5)";
+restartBut.style.border = "1px solid #999999";
+restartBut.style.color = "#666666"; 
+restartBut.disabled = true;
+
+function onload(){
 	game = document.getElementById("game");
 	balance = Number(localStorage.getItem("balance"));
 	arr = game.getElementsByClassName("inner");
 	win_block = document.getElementById("win_block");
 	win_text = win_block.getElementsByClassName("winner")[0];	
-	again = win_block.getElementsByClassName("again")[0];
 	winning = game.getElementsByClassName("winning")[0];
-
-	again.onclick = function(){
-		winning.style.display = "none";
-		win_block.style.display = "none";
-		clearTable();
-		randomMove();
-	};
 
 	for(var i = 0; i < arr.length; i++){
 		arr[i].onclick = function(){
@@ -32,12 +51,20 @@ onload = function(){
 };
 
 playBut.onclick = function(){
-    requestAnimationFrame(loop);
+    onload();
       this.style.backgroundColor = "hsla(0, 0%, 80%, 0.5)";
       this.style.border = "1px solid #999999";
       this.style.color = "#666666"; 
       this.disabled = true;
-    }  
+	  
+};
+
+restartBut.onclick = function(){
+	winning.style.display = "none";
+	win_block.style.display = "none";
+	clearTable();
+	randomMove();
+};
 
 function randomMove(){
 	var rnd = getRandomInt(2);
@@ -58,12 +85,17 @@ function drawSym(item, sym = user_sym){
 
 
 	if (winner == user_sym) {
+		restartBut.style.backgroundColor = "hsla(0, 0%, 100%, 0.1)";
+		restartBut.style.backdropFilter = "blur(2px)";
+		restartBut.style.color = "#253e54";
+		restartBut.style.border = "2px solid #64b9d8";
+		restartBut.disabled = false;
 		balance +=10;
 		localStorage.setItem("balance",balance);
 		console.log(balance);
 		win_text.innerHTML = "You won! 10 points are in your wallet!";
 		win_text.style.color = "rgba(0,100,50, 0.5)";
-		 winning.style.backgroundColor = "rgba(0,100,50, 0.5)";
+		winning.style.backgroundColor = "rgba(0,100,50, 0.5)";
 	}else if (winner == comp_sym) {
 		balance -=10;
 		localStorage.setItem("balance",balance);
