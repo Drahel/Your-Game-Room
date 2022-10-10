@@ -57,7 +57,7 @@
                           <p class="card-text">Nothing inspiring.</p>
                         </div>  
                         <div class="card-footer">
-                          <button id="back1" onclick="applyBackground(this)" data-index="0" data-back="../resources/background.png"  class="btn btn-light disabled btn-buy applied product">Applied</button> 
+                          <button id="back1" onclick="applyBackground(this)" data-index="0" data-back="../resources/background.png"  class="btn btn-light disabled btn-buy applied product-back">Applied</button> 
                         </div>
                       </div>
                     </div>
@@ -69,7 +69,7 @@
                           <p class="card-text">Watercolor background with pink-blue shades.</p>
                         </div>  
                         <div class="card-footer">
-                          <button id="back2" onclick="applyBackground(this)" data-index="1" data-price="100" data-back="../resources/background\ 2.jpg" class="btn btn-light btn-buy buy product">100 <i class="fa-sharp fa-solid fa-coins"></i></button> 
+                          <button id="back2" onclick="applyBackground(this)" data-index="1" data-price="100" data-back="../resources/background\ 2.jpg" class="btn btn-light btn-buy buy product-back">100 <i class="fa-sharp fa-solid fa-coins"></i></button> 
                         </div>
                       </div>
                     </div>
@@ -81,7 +81,7 @@
                           <p class="card-text">Calm and balmy mountain landscape.</p>
                         </div>
                         <div class="card-footer">
-                          <button id="back3" onclick="applyBackground(this)" data-index="2" data-price="200" data-back="../resources/background\ 3.jpg" class="btn btn-light btn-buy buy product">200 <i class="fa-sharp fa-solid fa-coins"></i></button> 
+                          <button id="back3" onclick="applyBackground(this)" data-index="2" data-price="200" data-back="../resources/background\ 3.jpg" class="btn btn-light btn-buy buy product-back">200 <i class="fa-sharp fa-solid fa-coins"></i></button> 
                         </div>
                       </div>
                     </div>
@@ -93,7 +93,7 @@
                           <p class="card-text">Mysterious desert view.</p>
                         </div>
                         <div class="card-footer">
-                          <button onclick="applyBackground(this)" data-price="300" data-index="3" data-back="../resources/background\ 4.jpg" class="btn btn-light btn-buy buy product">300 <i class="fa-sharp fa-solid fa-coins"></i></button> 
+                          <button onclick="applyBackground(this)" data-price="300" data-index="3" data-back="../resources/background\ 4.jpg" class="btn btn-light btn-buy buy product-back">300 <i class="fa-sharp fa-solid fa-coins"></i></button> 
                         </div>
                       </div>
                     </div>
@@ -105,7 +105,7 @@
                           <p class="card-text">Another watercolor. Much more exotic this time.</p>
                         </div>
                         <div class="card-footer">
-                          <button onclick="applyBackground(this)" data-index="4" data-price="400" data-back="../resources/background\ 5.jpg" class="btn btn-light btn-buy buy product">400 <i class="fa-sharp fa-solid fa-coins"></i></button> 
+                          <button onclick="applyBackground(this)" data-index="4" data-price="400" data-back="../resources/background\ 5.jpg" class="btn btn-light btn-buy buy product-back">400 <i class="fa-sharp fa-solid fa-coins"></i></button> 
                         </div>
                       </div>
                     </div>
@@ -117,7 +117,7 @@
                             <p class="card-text">Relaxing sea surface. Feel this chilly breeze.</p>
                           </div>
                           <div class="card-footer">
-                            <button onclick="applyBackground(this)" data-index="5" data-price="500" data-back="../resources/background\ 6.jpg" class="btn btn-light btn-buy buy product">500 <i class="fa-sharp fa-solid fa-coins"></i></button> 
+                            <button onclick="applyBackground(this)" data-index="5" data-price="500" data-back="../resources/background\ 6.jpg" class="btn btn-light btn-buy buy product-back">500 <i class="fa-sharp fa-solid fa-coins"></i></button> 
                           </div>
                         </div>
                       </div>
@@ -134,7 +134,7 @@
                           <p class="card-text">Are there blue snakes???</p>
                         </div>  
                         <div class="card-footer">
-                          <button class="btn btn-light disabled btn-buy">Applied</button> 
+                          <button onclick="applySnake(this)" data-index="0" data-snake="#65b9d6" data-apple="#254053" class="btn btn-light appliedSnake disabled btn-buy product-snake">Applied</button> 
                         </div>
                       </div>
                     </div>
@@ -146,7 +146,7 @@
                           <p class="card-text">Is it looking for apple?</p>
                         </div>
                         <div class="card-footer">
-                          <button class="btn btn-light btn-buy">100 <i class="fa-sharp fa-solid fa-coins"></i></button> 
+                          <button onclick="applySnake(this)" data-index="1" data-price="100" data-snake="#028003" data-apple="#f80404" class="btn btn-light btn-buy buy product-snake">100 <i class="fa-sharp fa-solid fa-coins"></i></button> 
                         </div>
                       </div>
                     </div>
@@ -158,7 +158,7 @@
                           <p class="card-text">Reference to chess.</p>
                         </div>
                         <div class="card-footer">
-                          <button class="btn btn-light btn-buy">200 <i class="fa-sharp fa-solid fa-coins"></i></button> 
+                          <button onclick="applySnake(this)" data-index="2" data-price="200" data-snake="#fdfdfd" data-apple="#010101" class="btn btn-light btn-buy buy product-snake">200 <i class="fa-sharp fa-solid fa-coins"></i></button> 
                         </div>
                       </div>
                     </div>
@@ -171,7 +171,7 @@
                           <p class="card-text">- To do, to do, to do, to do, to doooo.</p>
                         </div>
                         <div class="card-footer">
-                          <button class="btn btn-light btn-buy">300 <i class="fa-sharp fa-solid fa-coins"></i></button> 
+                          <button onclick="applySnake(this)" data-index="3" data-price="300" data-snake="#fd76de" data-apple="#25f5f5" class="btn btn-light btn-buy buy product-snake">300 <i class="fa-sharp fa-solid fa-coins"></i></button> 
                         </div>
                       </div>
                     </div>
@@ -184,7 +184,7 @@
                             <p class="card-text">P.S. Just kidding.</p>
                           </div>
                           <div class="card-footer">
-                            <button class="btn btn-light btn-buy">400 <i class="fa-sharp fa-solid fa-coins"></i></button> 
+                            <button onclick="applySnake(this)" data-index="4" data-price="400" data-snake="#f1ff01" data-apple="#020002" class="btn btn-light btn-buy buy product-snake">400 <i class="fa-sharp fa-solid fa-coins"></i></button> 
                           </div>
                         </div>
                       </div>

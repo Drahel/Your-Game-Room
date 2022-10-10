@@ -100,10 +100,10 @@
       snake.cells.pop();
     }
     // Рисуем еду — яблоко
-    context.fillStyle = '#253e54';
+    context.fillStyle = localStorage.getItem("appleColor");
     context.fillRect(apple.x, apple.y, grid - 1, grid - 1);
     // Одно движение змейки — один новый нарисованный квадратик 
-    context.fillStyle = '#64b9d8';
+    context.fillStyle = localStorage.getItem("snakeColor");
     // Обрабатываем каждый элемент змейки
     snake.cells.forEach(function (cell, index) {
       // Чтобы создать эффект клеточек, делаем голубые квадратики меньше на один пиксель, чтобы вокруг них образовалась чёрная граница
