@@ -21,7 +21,7 @@ for (let i = 0; i < 6; i++) {
 
 scores = [100, 200, 300, 400, 600, 800]
 
-for (let i = 0; i < 5; i++) { 
+for (let i = 0; i < 6; i++) { 
     console.log(achievedList[i])
     if (achievedList[i] == "false")
         {
