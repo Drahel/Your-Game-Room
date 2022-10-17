@@ -1,5 +1,5 @@
 /* reset */
-html, body, div, span, h1, h2, p, a, img, strong, ul, li, button, footer, header {margin: 0; padding: 0; border: 0; vertical-align: baseline;}
+html, body, div, span, h1, h2, p, a, img, strong, ul, li, footer, header {margin: 0; padding: 0; border: 0; vertical-align: baseline;}
 *, :after, :before {-webkit-box-sizing: border-box; box-sizing: border-box;}
 a, button, div {outline: none;}
 ul {list-style: none;}
@@ -13,8 +13,13 @@ html, body  {height: 100%;}
 
 .ships-collection{
 	font-family: Jacques Francois; color: #000000;
-		text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
- color: #64b9d8	;
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  color: #64b9d8	;
+}
+
+.modal{
+  color: #000000;
+  
 }
   
 .control-but{
@@ -36,12 +41,19 @@ html, body  {height: 100%;}
     transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
     -webkit-appearance: none;
     appearance: none;
-  }
+}
   
 
 /* typography */
 body {font: normal 18px SegoePrint; line-height: 24px; color: #4530af;}
 p {margin-bottom: 10px;}
+.typo{
+  font-family: Jacques Francois;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+}
+.rules-text{
+  font-size: 16px;
+}
 
 /* buttons */
 .btn-play {width: 144px; height: 45px; font-family: SegoePrint; font-size: 24px; line-height: 40px; color: #4530af; text-align: center; background-position: 0 -150px; cursor: pointer;}
@@ -53,8 +65,7 @@ p {margin-bottom: 10px;}
 /*** CONTENT ***/
 
 .battlefield {width: 860px; height: 430	px; position: relative; margin: 0 auto; background: url('../../resources/battleship-game/grid.png') repeat;}
-.text-top {height: 66px; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 7px; font-family: Jacques Francois; color: #000000;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+.text-top {height: 66px; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 7px;  color: #000000;
   color: white;}
 .service-row {text-align: center;}
 .service-text {color: #c00; padding-top: 10px;}
@@ -82,7 +93,7 @@ p {margin-bottom: 10px;}
 
 .instruction {margin-left: 26px; -webkit-user-select: none; user-select: none;}
 .type-placement-box {line-height: 34px; padding-bottom: 18px; width: 300px;}
-	.type-placement-box .link {font-size: 20px; border-bottom:  2px #4530af; cursor: pointer; font-family: Jacques Francois; color: #000000;
+	.type-placement-box .link {font-size: 20px; border-bottom:  2px #4530af; cursor: pointer; color: #000000;
 		text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
 	 color: white;}
 

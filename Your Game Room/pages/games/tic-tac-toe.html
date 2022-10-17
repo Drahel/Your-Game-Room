@@ -4,78 +4,113 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+     <!-- CSS -->
     <link rel="stylesheet" href="../../styles/games/tic-tac-toe.css">
     <link rel="stylesheet" href="../../styles/main.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-        crossorigin="anonymous"></script>
-    <script src="../../tic-tac-toe.js"></script>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <!-- Scripts -->
+    <script type="text/javascript" src="../../scripts/backgroundSet.js"></script>
     <title>Your Game Room</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light ">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
         <div class="mx-auto head-text">
-            <a class="navbar-brand mx-auto" href="../main-screen.html">
-                <h3 style="margin-bottom: 0;">Your Game Room</h3>
-            </a>
+            <a class="navbar-brand mx-auto" href="../main-screen.html"><h2 style="margin-bottom: 0;">Your Game Room</h2></a>
         </div>
     </nav>
-
-    <div id="game">
-        <div class="table">
-            <table cellpadding="0" cellspacing="0">
-                <tr>
-                    <td>
-                        <div class="inner"></div>
-                    </td>
-                    <td>
-                        <div class="inner"></div>
-                    </td>
-                    <td>
-                        <div class="inner"></div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="inner"></div>
-                    </td>
-                    <td>
-                        <div class="inner"></div>
-                    </td>
-                    <td>
-                        <div class="inner"></div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="inner"></div>
-                    </td>
-                    <td>
-                        <div class="inner"></div>
-                    </td>
-                    <td>
-                        <div class="inner"></div>
-                    </td>
-                </tr>
-            </table>
-            <div class="winning"></div>
+    <div class="game-window">
+        <div id="game">
+            <div class="table">
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td>
+                            <div class="inner"></div>
+                        </td>
+                        <td>
+                            <div class="inner"></div>
+                        </td>
+                        <td>
+                            <div class="inner"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="inner"></div>
+                        </td>
+                        <td>
+                            <div class="inner"></div>
+                        </td>
+                        <td>
+                            <div class="inner"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="inner"></div>
+                        </td>
+                        <td>
+                            <div class="inner"></div>
+                        </td>
+                        <td>
+                            <div class="inner"></div>
+                        </td>
+                    </tr>
+                </table>
+                <div class="winning"></div>
+            </div>
+            <div id="win_block">
+                <span class="winner"></span>
+            </div>
         </div>
-        <div id="win_block">
-            <span class="winner"></span>
-            <span class="again">Играть еще!</span>
+        <div class="control-div">
+            <button class="control-but" id="play-pause">
+                Play
+            </button>
+            <button class="control-but" id="restart">
+                Reload
+            </button>
+            <button type="button" class="control-but" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="rules">
+                Guide
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                 <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center" id="staticBackdropLabel">Tic-tac-toe Rules</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h4>How to play?</h4> 
+                        <img width="100px" style="float:right" src="../../resources/game-rules/start-game-icon.jpg">
+                        <p>1. Click on the "Play" button located to the bottom of the playing field. The button will become inactive, see point 5.</p>
+                        <img width="50px" style="float:left; margin-right: 10px;" src="../../resources/game-rules/cross-icon.jpg">
+                        <img width="50px" style="float:right; margin-left: 6px;" src="../../resources/game-rules/circle-icon.jpg">
+                        <p>2. Players take turns placing signs on the free squares of the 3×3 field (one is always crosses, the other is always circles).</p>
+                        <p>3. The first one who lines up 3 of his shapes vertically, horizontally or diagonally wins.</p>
+                        <p>4. The first move is made by the player putting crosses.</p>
+                        <p>4. If you win you get 10 points, if you lose you have -10 points. Draw - 0.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Understood</button>
+                    </div>
+                  </div>
+                </div>
+             </div>
         </div>
     </div>
 
 
     <footer class="footer">
-        <div class="container">
-            Your score: 100 
+        <div class="container footer-menu">
+            <button class="but" onclick="window.location.href='../main-screen.html'">Back <i class="fa-solid fa-angle-left"></i></button>
         </div>
     </footer>
+    <script src="../../scripts/tic-tac-toe.js"></script>
 </body>

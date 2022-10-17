@@ -18,6 +18,8 @@
     function drawScore(){
       scoreBar.innerHTML = "Score : "+ score;
     }
+    var balance = Number(localStorage.getItem("balance"));
+    var scoresStorage = Number(localStorage.getItem("scores"));
  
 
     // с помощью двумерного массива следим за тем, что находится в каждой клетке игрового поля
@@ -199,7 +201,11 @@
         // если ряд заполнен
         if (playfield[row].every(cell => !!cell)) {
           //добавляем очки к общему счету
-            score+=100;
+            score+=5;
+            balance +=5;
+            localStorage.setItem("balance",balance);
+            scoresStorage += 5;
+            localStorage.setItem("scores",scoresStorage);
             drawScore();
           // очищаем его и опускаем всё вниз на одну клетку
           for (let r = row; r >= 0; r--) {

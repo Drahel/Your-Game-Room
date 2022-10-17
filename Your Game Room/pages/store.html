@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- MDB -->
+    <link rel="stylesheet" href="../features/MDB5/css/mdb.min.css" />
+    <script type="text/javascript" src="../features/MDB5/js/mdb.min.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/store.css">
+    <!-- Scripts -->
+    <script type="text/javascript" src="../scripts/backgroundSet.js"></script>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <title>Your Game Room</title>
+</head>
+
+<body>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark header">
+        <div class="mx-auto head-text">
+            <a class="navbar-brand mx-auto"><h2 style="margin-bottom: 0;">Store</h2></a>
+        </div>
+        <div class="wallet-div">
+          <span><span id="balance"></span> <i class="fa-solid fa-wallet"></i></span>
+        </div>
+    </nav>
+    
+
+      <div class="card store-card">
+        <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs" id="myTab">
+                <li class="nav-item">
+                    <a href="#backgrounds" class="nav-link active" data-bs-toggle="tab">Backgrounds</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#snake" class="nav-link" data-bs-toggle="tab">Snake</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#tetris" class="nav-link" data-bs-toggle="tab">Tetris</a>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body">
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="backgrounds">
+                  <div class="row row-cols-md-3 row-cols-sm-2 row-cols-lg-3 g-4 store-row">
+                    <div class="col product-col">
+                      <div class="card">
+                        <img src="../resources/background.png" height="182px" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Your default background</h5>
+                          <p class="card-text">Nothing inspiring.</p>
+                        </div>  
+                        <div class="card-footer">
+                          <button id="back1" onclick="applyBackground(this)" data-index="0" data-back="../resources/background.png"  class="btn btn-light disabled btn-buy applied product-back">Applied</button> 
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col product-col">
+                      <div class="card">
+                        <img src="../resources/background 2.jpg" height="182px" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Background v.2</h5>
+                          <p class="card-text">Watercolor background with pink-blue shades.</p>
+                        </div>  
+                        <div class="card-footer">
+                          <button id="back2" onclick="applyBackground(this)" data-index="1" data-price="100" data-back="../resources/background\ 2.jpg" class="btn btn-light btn-buy buy product-back">100 <i class="fa-sharp fa-solid fa-coins"></i></button> 
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col product-col">
+                      <div class="card ">
+                        <img src="../resources/background 3.jpg" height="182px" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">One more background</h5>
+                          <p class="card-text">Calm and balmy mountain landscape.</p>
+                        </div>
+                        <div class="card-footer">
+                          <button id="back3" onclick="applyBackground(this)" data-index="2" data-price="200" data-back="../resources/background\ 3.jpg" class="btn btn-light btn-buy buy product-back">200 <i class="fa-sharp fa-solid fa-coins"></i></button> 
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col product-col">
+                      <div class="card">
+                        <img src="../resources/background 4.jpg" height="182px"  class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Another background</h5>
+                          <p class="card-text">Mysterious desert view.</p>
+                        </div>
+                        <div class="card-footer">
+                          <button onclick="applyBackground(this)" data-price="300" data-index="3" data-back="../resources/background\ 4.jpg" class="btn btn-light btn-buy buy product-back">300 <i class="fa-sharp fa-solid fa-coins"></i></button> 
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col product-col">
+                      <div class="card">
+                        <img src="../resources/background 5.jpg" height="182px" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Hmmm...background</h5>
+                          <p class="card-text">Another watercolor. Much more exotic this time.</p>
+                        </div>
+                        <div class="card-footer">
+                          <button onclick="applyBackground(this)" data-index="4" data-price="400" data-back="../resources/background\ 5.jpg" class="btn btn-light btn-buy buy product-back">400 <i class="fa-sharp fa-solid fa-coins"></i></button> 
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col product-col">
+                        <div class="card">
+                          <img src="../resources/background 6.jpg" height="182px" class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <h5 class="card-title">...background??</h5>
+                            <p class="card-text">Relaxing sea surface. Feel this chilly breeze.</p>
+                          </div>
+                          <div class="card-footer">
+                            <button onclick="applyBackground(this)" data-index="5" data-price="500" data-back="../resources/background\ 6.jpg" class="btn btn-light btn-buy buy product-back">500 <i class="fa-sharp fa-solid fa-coins"></i></button> 
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+
+                <div class="tab-pane fade" id="snake">
+                  <div class="row row-cols-md-3 row-cols-sm-2 row-cols-lg-3 g-4 store-row">
+                    <div class="col product-col">
+                      <div class="card">
+                        <img src="../resources/snake-color-combo-1.jpg" height="182px" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Your fam snake</h5>
+                          <p class="card-text">Are there blue snakes???</p>
+                        </div>  
+                        <div class="card-footer">
+                          <button onclick="applySnake(this)" data-index="0" data-snake="#65b9d6" data-apple="#254053" class="btn btn-light appliedSnake disabled btn-buy product-snake">Applied</button> 
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col product-col">
+                      <div class="card ">
+                        <img src="../resources/snake-color-combo-2.jpg" height="182px" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Seems to be original</h5>
+                          <p class="card-text">Is it looking for apple?</p>
+                        </div>
+                        <div class="card-footer">
+                          <button onclick="applySnake(this)" data-index="1" data-price="100" data-snake="#028003" data-apple="#f80404" class="btn btn-light btn-buy buy product-snake">100 <i class="fa-sharp fa-solid fa-coins"></i></button> 
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col product-col">
+                      <div class="card">
+                        <img src="../resources/snake-color-combo-3.jpg" height="182px"  class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Tricky one...</h5>
+                          <p class="card-text">Reference to chess.</p>
+                        </div>
+                        <div class="card-footer">
+                          <button onclick="applySnake(this)" data-index="2" data-price="200" data-snake="#fdfdfd" data-apple="#010101" class="btn btn-light btn-buy buy product-snake">200 <i class="fa-sharp fa-solid fa-coins"></i></button> 
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col product-col">
+                      <div class="card">
+                        <img src="../resources/snake-color-combo-4.jpg" height="182px" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Weird panther</h5>
+                          <p class="card-text">- To do. To do.</p>
+                          <p class="card-text">- To do, to do, to do, to do, to doooo.</p>
+                        </div>
+                        <div class="card-footer">
+                          <button onclick="applySnake(this)" data-index="3" data-price="300" data-snake="#fd76de" data-apple="#25f5f5" class="btn btn-light btn-buy buy product-snake">300 <i class="fa-sharp fa-solid fa-coins"></i></button> 
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col product-col">
+                        <div class="card">
+                          <img src="../resources/snake-color-combo-5.jpg" height="182px" class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <h5 class="card-title">Lightning</h5>
+                            <p class="card-text">Fast as hell.</p>
+                            <p class="card-text">P.S. Just kidding.</p>
+                          </div>
+                          <div class="card-footer">
+                            <button onclick="applySnake(this)" data-index="4" data-price="400" data-snake="#f1ff01" data-apple="#020002" class="btn btn-light btn-buy buy product-snake">400 <i class="fa-sharp fa-solid fa-coins"></i></button> 
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+
+                <div class="tab-pane fade" id="tetris">
+                    <h5 class="card-title">Comming soon...</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container footer-menu">
+            <button class="but" onclick="window.location.href='../pages/main-screen.html'">Back <i class="fa-solid fa-angle-left"></i></button>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="../scripts/store.js"></script>
+</body>
+</html> 

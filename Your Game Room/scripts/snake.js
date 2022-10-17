@@ -28,6 +28,8 @@
   //подсчет очков
   var score = 0;
   var scoreBar = document.getElementById('score'); 
+  var balance = Number(localStorage.getItem("balance"));
+  var scoresStorage = Number(localStorage.getItem("scores"));
   function drawScore(){
     scoreBar.innerHTML = "Score : "+ score;
   }
@@ -98,11 +100,11 @@
     if (snake.cells.length > snake.maxCells) {
       snake.cells.pop();
     }
-    // Рисуем еду — cинее яблоко
-    context.fillStyle = '#253e54';
+    // Рисуем еду — яблоко
+    context.fillStyle = localStorage.getItem("appleColor");
     context.fillRect(apple.x, apple.y, grid - 1, grid - 1);
     // Одно движение змейки — один новый нарисованный квадратик 
-    context.fillStyle = '#64b9d8';
+    context.fillStyle = localStorage.getItem("snakeColor");
     // Обрабатываем каждый элемент змейки
     snake.cells.forEach(function (cell, index) {
       // Чтобы создать эффект клеточек, делаем голубые квадратики меньше на один пиксель, чтобы вокруг них образовалась чёрная граница
@@ -110,7 +112,11 @@
       // Если змейка добралась до яблока...
       if (cell.x === apple.x && cell.y === apple.y) {
         //добавляем очки к общему счету
-        score+=20;
+        score+=1;
+        balance+=1;
+        localStorage.setItem("balance",balance);    
+        scoresStorage+=1;   
+        localStorage.setItem("scores", scoresStorage); 
         drawScore();
         // увеличиваем длину змейки
         snake.maxCells++;
@@ -191,4 +197,5 @@
 
     restartBut.onclick = function(){
       window.location.reload();
+      var scoresStorage = Number(localStorage.getItem("scores"));
     }

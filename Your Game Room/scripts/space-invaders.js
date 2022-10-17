@@ -1,5 +1,5 @@
 var balance = Number(localStorage.getItem("balance"));
-
+var scoresStorage = Number(localStorage.getItem("scores"));
 const DEV_MODE = false;
 
 var stage = document.createElement('canvas');
@@ -168,6 +168,10 @@ function handleLaserCollision() {
         
         // increase score
         score += calcScore(enemy.radius);
+        balance+=score;
+        localStorage.setItem("balance",balance); 
+        scoresStorage += 1;
+        localStorage.setItem("scores",scoresStorage); 
         scoreNode.textContent = score;
       }
     }
